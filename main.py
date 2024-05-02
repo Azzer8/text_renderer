@@ -6,11 +6,11 @@ Generate training and test images.
 import os
 
 # prevent opencv use all cpus
-os.environ['OMP_NUM_THREADS'] = '1'
-os.environ['OPENBLAS_NUM_THREADS'] = '1'
-os.environ['MKL_NUM_THREADS'] = '1'
-os.environ['VECLIB_MAXIMUM_THREADS'] = '1'
-os.environ['NUMEXPR_NUM_THREADS'] = '1'
+# os.environ['OMP_NUM_THREADS'] = '1'
+# os.environ['OPENBLAS_NUM_THREADS'] = '1'
+# os.environ['MKL_NUM_THREADS'] = '1'
+# os.environ['VECLIB_MAXIMUM_THREADS'] = '1'
+# os.environ['NUMEXPR_NUM_THREADS'] = '1'
 
 import traceback
 import numpy as np
@@ -121,7 +121,6 @@ def sort_labels(tmp_label_fname, label_fname):
 
 
 def restore_exist_labels(label_path):
-    # 如果目标目录存在 labels.txt 则向该目录中追加图片
     start_index = 0
     if os.path.exists(label_path):
         start_index = len(utils.load_chars(label_path))
